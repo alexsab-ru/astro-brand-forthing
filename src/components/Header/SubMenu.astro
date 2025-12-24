@@ -11,11 +11,11 @@ classes = !Array.isArray(children) && Object.keys(children).length > 1 ? classes
 {children && (
 	<div class={classes}>
 		{!Array.isArray(children) && Object.keys(children).length > 0 ? Object.keys(children).map( key => (
-			<div class={`lg:grid lg:grid-cols-5 ${Object.keys(children).length > 1 ? '' : ''}`} x-data="{isOpenSubMenu: false}">
+			<div class={`lg:grid lg:grid-cols-5 ${Object.keys(children).length > 1 ? 'lg:border-b' : ''}`} x-data="{isOpenSubMenu: false}">
 				<div class="relative lg:flex lg:items-center">
 					{ Object.keys(children).length > 1 ? (
 						<div 
-							class="relative flex items-center justify-between font-bold pr-5 lg:text-3xl py-2.5 pl-8 lg:pl-5 text-black lg:text-white"
+							class="relative flex items-center justify-between font-weight-bold pr-5 lg:text-3xl py-2.5 pl-8 lg:pl-5"
 							@click="isOpenSubMenu = !isOpenSubMenu"
 						>
 							{key}
@@ -23,7 +23,7 @@ classes = !Array.isArray(children) && Object.keys(children).length > 1 ? classes
 								class="absolute right-0 top-0 h-full aspect-square flex items-center justify-center origin-center transition-transform lg:hidden"
 								:class="{'rotate-90': isOpenSubMenu}"
 							>
-								<Icon name="mdi:chevron-right" class="size-6 text-black" />
+								<Icon name="mdi:chevron-right" class="size-6" />
 							</div>
 						</div>
 					) : '' }
